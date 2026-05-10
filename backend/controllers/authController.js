@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const sendEmail = require("../utils/sendEmail")
 
-exports.registerUser = async (req, res) => {
+exports.register = async (req, res) => {
     try {
         const { username, password, email } = req.body;
         if (!username || !password || !email) {
