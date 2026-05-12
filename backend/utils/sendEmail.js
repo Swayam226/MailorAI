@@ -25,5 +25,6 @@ const sendEmail = async (options) => {
         console.log("Error sending email", error.message);
         throw error;
     }
-
 }
+
+module.exports = sendEmail;

@@ -8,7 +8,19 @@ exports.register = async (req, res) => {
             return res.status(400).json({ message: "all fields are required." })
         }
 
-        const existingUser = user.findOne({ email });
+        if (email && !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            return res.status(400).json({ message: 'Please provide a valid email address' });
+        }
+
+        if (password.length < 6) {
+            return res.status(400).json({ message: 'Password must be at least 6 characters long' });
+        }
+
+        if (username.length < 2) {
+            return res.status(400).json({ message: 'userame must be at least 2 characters long' });
+        }
+
+        const existingUser = await User.findOne({ email });
 
         if (existingUser) {
             return res.status(400).json({ message: "Email already in use" })
@@ -19,7 +31,7 @@ exports.register = async (req, res) => {
         const otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
 
         const user = await User.create({ username, password, email, otp, otpExpiry })
-        res.status(201).json({ message: "user registered", user });
+        res.status(201).json({ message: "user registered" });
 
         try {
             await sendEmail({
@@ -34,5 +46,9 @@ exports.register = async (req, res) => {
 
     } catch (error) {
         console.error(error);
+
+        res.status(500).json({
+            message: "Internal server error"
+        })
     }
 }
