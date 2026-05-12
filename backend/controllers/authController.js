@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const sendEmail = require("../utils/sendEmail")
+const jwt = require("jsonwebtoken");
 
 exports.register = async (req, res) => {
     try {
@@ -91,8 +92,10 @@ exports.verifyOtp = async (req, res) => {
         user.otp = undefined;
         user.otpExpiry = undefined;
         await user.save();
+        const token = user.generateToken();
 
         res.status(200).json({
+            token,
             message: 'Email verified successfully!'
         });
     } catch (error) {
@@ -100,3 +103,32 @@ exports.verifyOtp = async (req, res) => {
         res.status(500).json({ message: 'Verification failed', error: error.message });
     }
 };
+
+exports.login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        if (!email || !password) {
+            return res.status(400).json({ message: "Email and password are required" });
+        }
+        const user = await User.findOne({ email }).select('+password +isVerified');
+        if (!user) {
+            return res.status(400).json({ message: "user not found" });
+        }
+        if (!user.isVerified) {
+            return res.status(400).json({ message: "User not defined. Please verify your email first." });
+        }
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) {
+            return res.status(400).json({ message: "invalid credentials" });
+        }
+        const token = user.generateToken();
+        return res.status(200).json({
+            message:
+                "login successful",
+            token,
+            user: { username: user.username, email: user.email }
+        });
+    } catch (error) {
+        return res.status(500).json({ message: "Error logging in", error: error.message });
+    }
+}
