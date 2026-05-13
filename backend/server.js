@@ -13,7 +13,7 @@ const aiRoutes = require("./routes/aiRoutes");
 const authRoutes = require("./routes/authRoutes");
 
 app.use("/api/auth", authRoutes);
-// app.use("/api/ai", aiRoutes);
+app.use("/api/ai", aiRoutes);
 
 app.listen(PORT, () => {
     console.log(`server is running on port: ${PORT}`);
