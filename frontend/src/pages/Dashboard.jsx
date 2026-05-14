@@ -15,7 +15,7 @@ const Dashboard = () => {
 
     setLoading(true);
     try {
-      const { data } = await api.post("/ai/generate-email", { prompt });
+      const { data } = await api.post("/api/ai/generate-email", { prompt });
       setResult(data);
       toast.success("Successfully generated!");
     } catch (error) {
@@ -54,7 +54,6 @@ const Dashboard = () => {
 
   return (
     <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 h-[calc(100vh-8rem)]">
-      {/* Input Section */}
       <div className="w-full lg:w-1/3 bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
           New Campaign
@@ -104,7 +103,6 @@ const Dashboard = () => {
         </form>
       </div>
 
-      {/* Output Section */}
       <div className="w-full lg:w-2/3 flex flex-col overflow-y-auto">
         {result ? (
           <div>

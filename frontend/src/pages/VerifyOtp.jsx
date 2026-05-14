@@ -22,7 +22,7 @@ const VerifyOtp = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await api.post("/auth/verify-otp", { email, otp });
+      const { data } = await api.post("/api/auth/verify-otp", { email, otp });
       login(data);
       toast.success("Email verified successfully!");
       navigate("/dashboard");
@@ -59,14 +59,14 @@ const VerifyOtp = () => {
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
                 className="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 text-center text-2xl tracking-widest font-mono"
-                placeholder="000000"
+                placeholder="00000"
               />
             </div>
 
             <button
               type="submit"
-              disabled={loading || otp.length !== 6}
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50"
+              disabled={loading || otp.length !== 5}
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50"
             >
               {loading ? "Verifying..." : "Verify Email"}
             </button>

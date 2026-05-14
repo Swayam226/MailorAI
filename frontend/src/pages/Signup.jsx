@@ -14,7 +14,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { data } = await api.post("/auth/register", {
+      const { data } = await api.post("/api/auth/register", {
         username,
         email,
         password,
