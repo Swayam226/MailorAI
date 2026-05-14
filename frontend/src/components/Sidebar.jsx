@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { DocumentTextIcon, HomeIcon } from "@heroicons/react/24/outline";
+import { HomeIcon } from "@heroicons/react/24/outline";
 
 const Sidebar = () => {
   return (
-    <div className="w-64 bg-white border-r border-gray-200 flex flex-col hidden md:flex">
+    <div className="w-64 bg-white border-r border-gray-200 flex flex-col md:flex">
       <div className="h-16 flex items-center px-6 border-b border-gray-200">
         <h1 className="text-xl font-bold text-primary-600">MailGen AI</h1>
       </div>

@@ -11,7 +11,8 @@ import Signup from "./pages/Signup";
 import VerifyOtp from "./pages/VerifyOtp";
 import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
-import { useAuth } from "./context/AuthContext";
+// import { useAuth } from "./context/AuthContext";
+import { useAuth } from "./context/useAuth";
 
 function App() {
   const { user, loading } = useAuth();
