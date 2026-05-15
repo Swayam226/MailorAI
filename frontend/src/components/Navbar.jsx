@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 shrink-0">
       <div className="text-lg font-medium text-gray-800 hidden md:block">
-        Welcome back, {user?.username || "User"}
+        Welcome back, {user?.user?.username || "User"}
       </div>
       <div className="text-lg font-bold text-primary-600 md:hidden">
         Mailor AI

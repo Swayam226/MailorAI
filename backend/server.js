@@ -10,7 +10,10 @@ const {
 app.set("trust proxy", 1);
 app.use(express.json());
 require('dotenv').config()
-app.use(cors());
+app.use(cors({
+    origin: "https://mailor-ai.vercel.app",
+    credentials: true
+}));
 
 
 const PORT = process.env.PORT || 3000;
