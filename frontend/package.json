@@ -1,7 +1,8 @@
 {
-  "name": "frontend",
+  "name": "mailoraifrontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "MailorAI - Create impactful cold emails with the help of AI for your next best shot at a job.",
   "type": "module",
   "scripts": {
     "dev": "vite",

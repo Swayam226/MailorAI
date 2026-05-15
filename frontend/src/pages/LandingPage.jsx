@@ -33,13 +33,12 @@ const LandingPage = () => {
 
   return (
     <div className="bg-white min-h-screen font-sans selection:bg-primary-100 selection:text-primary-900">
-      {/* Navigation */}
       <nav className="border-b border-gray-100 bg-white/80 backdrop-blur-md fixed w-full z-50 transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
               <span className="text-2xl font-black bg-gradient-to-r from-primary-600 to-indigo-600 bg-clip-text text-transparent">
-                MailGen AI
+                Mailor AI
               </span>
             </div>
             <div className="flex items-center space-x-4">
@@ -109,7 +108,6 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Feature Section */}
       <div className="py-24 bg-gray-50/50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -188,7 +186,7 @@ const LandingPage = () => {
 
       <footer className="bg-white border-t border-gray-100 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-          <span className="text-xl font-black bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-4">
+          <span className="text-xl font-black  from-gray-800 to-gray-600 bg-clip-text text-transparent mb-4">
             MailGen AI
           </span>
           <p className="text-gray-500 text-sm">

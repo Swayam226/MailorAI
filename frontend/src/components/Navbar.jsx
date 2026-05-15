@@ -17,7 +17,7 @@ const Navbar = () => {
         Welcome back, {user?.username || "User"}
       </div>
       <div className="text-lg font-bold text-primary-600 md:hidden">
-        MailGen AI
+        Mailor AI
       </div>
 
       <div className="flex items-center space-x-4">
