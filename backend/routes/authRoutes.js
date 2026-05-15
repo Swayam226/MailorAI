@@ -1,8 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const authController = require("../controllers/authController")
+const rateLimit = require("express-rate-limit")
 
-router.post('/register', authController.register);
+const otpLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000,
+    max: 5,
+    message: {
+        message: "Too many OTP requests."
+    }
+});
+
+router.post('/register', otpLimiter, authController.register);
 
 router.post('/login', authController.login);
 

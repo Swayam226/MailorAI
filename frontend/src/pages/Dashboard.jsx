@@ -57,7 +57,7 @@ const Dashboard = () => {
     <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 h-[calc(100vh-8rem)]">
       <div className="w-full lg:w-1/3 bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
-          New Campaign
+          Shoot your shot
         </h2>
         <form onSubmit={handleGenerate} className="flex-1 flex flex-col">
           <label className="text-sm font-medium text-gray-700 mb-2">
@@ -122,7 +122,7 @@ const Dashboard = () => {
             />
             <ResultCard
               title="LinkedIn DM"
-              content={result.linkedInDM}
+              content={result.linkedinDM}
               type="linkedin"
             />
             <ResultCard

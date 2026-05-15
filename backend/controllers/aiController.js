@@ -21,7 +21,7 @@ exports.generateEmail = async (req, res) => {
             return res.status(400).json({ message: 'Prompt cannot exceed 2000 characters' });
         }
 
-        // Call Groq API (Free tier - No quota issues!)
+
         const groqApiKey = process.env.GROQ_API_KEY;
         if (!groqApiKey) {
             return res.status(500).json({ message: 'AI service is not configured' });
