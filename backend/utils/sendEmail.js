@@ -1,29 +1,22 @@
-const nodemailer = require("nodemailer");
+const { BrevoClient } = require("@getbrevo/brevo");
 
-const transporter = nodemailer.createTransport({
-    host: "smtp-relay.brevo.com",
-    port: 587,
-    secure: false,
-    auth: {
-        user: process.env.BREVO_SMTP_USER,
-        pass: process.env.BREVO_SMTP_PASS
-    }
+const client = new BrevoClient({
+    apiKey: process.env.BREVO_API_KEY
 });
 
 const sendEmail = async (options) => {
     try {
-        if (!process.env.BREVO_SMTP_USER || !process.env.BREVO_SMTP_PASS) {
-            throw new Error("Email credentials are not set in ENV variables");
+        if (!process.env.BREVO_API_KEY) {
+            throw new Error("BREVO_API_KEY not set in ENV variables");
         }
 
-        const mailOptions = {
-            from: process.env.EMAIL_FROM,
-            to: options.to,
+        await client.transactionalEmails.sendTransacEmail({
+            sender: { email: process.env.EMAIL_FROM },
+            to: [{ email: options.to }],
             subject: options.subject,
-            text: options.text
-        };
+            textContent: options.text
+        });
 
-        await transporter.sendMail(mailOptions);
         console.log("Email sent successfully");
 
     } catch (error) {
