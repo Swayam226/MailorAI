@@ -20,6 +20,7 @@ const Dashboard = () => {
       toast.success("Successfully generated!");
     } catch (error) {
       toast.error("Failed to generate. Please try again.");
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -71,12 +72,12 @@ const Dashboard = () => {
           <button
             type="submit"
             disabled={loading || !prompt.trim()}
-            className="mt-4 w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+            className="mt-4 w-full bg-primary-600 hover:bg-primary-700 text-black font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? (
               <span className="flex items-center">
                 <svg
-                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-black"
                   fill="none"
                   viewBox="0 0 24 24"
                 >
