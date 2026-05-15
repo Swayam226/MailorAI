@@ -7,6 +7,7 @@ const {
     authLimiter,
     aiLimiter
 } = require("./middleware/rateLimiters");
+app.set("trust proxy", 1);
 app.use(express.json());
 require('dotenv').config()
 app.use(cors());
