@@ -1,31 +1,12 @@
-# MailorAI - AI powered Cold Outreach Generator
+# MailorAI - Backend
 
 AI-powered cold outreach generation platform built using the MERN, Groq AI, JWT authentication, and OTP email verification.
 
-## Live Links
+## Live
 
-Full App: https://mailor-ai.vercel.app/
 Backend: https://mailorai-backend.onrender.com
 
-## Features
-
-- AI-Powered cold email generation
-- LinkedIn DM generation
-- Follow-up Email generation
-- MongoDB History tracking for mails (currently backend)
-- Rate Limiting
-- OTP Email verification
-- JWT based Authentication
-
 ## Tech Stack
-
-### Frontend
-
-- React
-- Vite
-- Tailwind CSS
-- Axios
-- React Router
 
 ### Backend
 
@@ -36,14 +17,6 @@ Backend: https://mailorai-backend.onrender.com
 - JWT
 - bcrypt
 - express-rate-limit
-
-### Services
-
-- Groq API
-- Brevo Email API
-- MongoDB Atlas
-- Render
-- Vercel
 
 ## Local Setup
 
@@ -61,14 +34,6 @@ npm install
 npm start
 ```
 
-### Frontend setup
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
 ## Environment Variables
 
 ### Backend
@@ -79,12 +44,6 @@ JWT_SECRET=
 GROQ_API_KEY=
 EMAIL_FROM=
 BREVO_API_KEY=
-```
-
-### Frontend
-
-```env
-VITE_API_BASE_URL=
 ```
 
 ## Architecture
